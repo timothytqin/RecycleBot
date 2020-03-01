@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Flyline",
-    "slug": "flyline",
+    "name": "RecycleBot",
+    "slug": "recyclebot",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

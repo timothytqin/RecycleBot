@@ -9,8 +9,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 const Stack = createStackNavigator();
-// const scoreState = { score: 20 };
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -48,12 +50,14 @@ export default function App(props) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-        <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-          <BottomTabNavigator></BottomTabNavigator>
-        </NavigationContainer>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
+          <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
+            <BottomTabNavigator></BottomTabNavigator>
+          </NavigationContainer>
+        </View>
+      </Provider>
     );
   }
 }

@@ -7,25 +7,14 @@ import { MonoText } from '../components/StyledText';
 
 const data = [
   {
-    name: 'Backpack',
-    x: 18,
-    y: 14,
-    z: 8,
-    message: 'Please put this item under your seat'
+    name: 'Recycle',
+    message: 'These items CAN be recycled:',
+    items: ['paper', 'cardboard', 'glass bottles or jars', 'rigid plastic products', 'metal containers(tin, aluminum, steel)']
   },
   {
-    name: 'suitcase',
-    x: 22,
-    y: 14,
-    z: 9,
-    message: 'Please put this item on the overhead bin'
-  },
-  {
-    name: 'luggage',
-    x: 24,
-    y: 15,
-    z: 10,
-    message: 'Too big for carry-on. Please check this bag. '
+    name: 'Don\'t Recycle',
+    message: 'These items CANNOT be recycled:',
+    items: ['greasy paper', 'used towels, tissues, or diapers', 'broken ceramics, light bulbs, or mirrors', 'plastic bags, shrink wrap, or bubble wrap', 'styrofoam', 'electronics']
   }
 
 ]
@@ -39,11 +28,11 @@ export default function HomeScreen() {
       >
         <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <View>
-            <Text style={styles.title}>Check In</Text>
-            <Text style={styles.text}>My items:</Text>
+            <Text style={styles.title}>To recycle</Text>
+            <Text style={styles.text}>or not to recycle...</Text>
           </View>
           <View>
-            <Image source={require('../assets/images/logo.png')} style={{ width: 50, height: 50 }} />
+            <Image source={require('../assets/images/recycle.png')} style={{ width: 70, height: 70 }} />
           </View>
         </View>
         <ScrollView>
@@ -54,12 +43,16 @@ export default function HomeScreen() {
                   <Text style={styles.cardName}>
                     {value.name}
                   </Text>
-                  <Text style={styles.cardDimension}>
-                    {value.x} x {value.y} x {value.z} inches
-                  </Text>
-                  <Text style={styles.cardMessage}>
+                  <Text style={styles.boldMessage}>
                     {value.message}
                   </Text>
+                  {value.items.map((item, ind) => {
+                    return (
+                      <Text style={styles.cardMessage} key={ind}>
+                        {item}
+                      </Text>
+                    )
+                  })}
                 </View>
                 <View style={styles.cardRight}>
                 </View>
@@ -85,7 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 50,
     paddingRight: 50,
-    paddingTop: 70
+    paddingTop: 50
   },
   text: {
     fontSize: 28,
@@ -93,10 +86,10 @@ const styles = StyleSheet.create({
     fontWeight: '800'
   },
   card: {
-    padding: 30,
+    padding: 25,
     backgroundColor: 'white',
     borderRadius: 30,
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 10
   },
   cardName: {
@@ -109,8 +102,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#B7B7B7'
   },
+  boldMessage: {
+    fontSize: 16,
+    color: '#313131',
+    marginTop: 10,
+    fontWeight: '800'
+  },
   cardMessage: {
-    fontSize: 20,
+    fontSize: 16,
     color: '#313131',
     marginTop: 10
   }
