@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 90978,
-  "expoServerNgrokUrl": "https://y5-cdq.stevehan2001.frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.y5-cdq.stevehan2001.frontend.exp.direct",
-  "ngrokPid": 91009
+  "devToolsPort": 19003,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://kr-jha.stevehan2001.frontend.exp.direct",
+  "packagerNgrokUrl": "https://packager.kr-jha.stevehan2001.frontend.exp.direct",
+  "ngrokPid": 43590
 }
